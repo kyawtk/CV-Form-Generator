@@ -1,12 +1,13 @@
 import React from "react";
 import "../styles/Preview.scss";
+
 const Preview = ({ edus, exps }) => {
   return (
     <div className="preview">
-      <Header></Header>
+      <Header />
       <section>
-        <Main edus={edus} exps={exps}></Main>
-        <PersonalDetails></PersonalDetails>
+        <Main edus={edus} exps={exps} />
+        <PersonalDetails />
       </section>
     </div>
   );
@@ -22,6 +23,7 @@ function Header() {
     </header>
   );
 }
+
 function Main({ edus, exps }) {
   return (
     <div className="main">
@@ -36,31 +38,35 @@ function Main({ edus, exps }) {
           illo officiis corporis nam dolor!
         </p>
       </div>
-      <Experiences exps={exps}></Experiences>
-      <Education edus={edus}></Education>
+      <Experiences exps={exps} />
+      <Education edus={edus} />
     </div>
   );
 }
-function Education({edus}) {
+
+function Education({ edus }) {
   return (
     <div className="experiences">
       <h3 className="heading">Education</h3>
-      {edus && edus.map(edu=>{
-        return <Edu key={edu.id} {...edu}></Edu>
-      })}
-      
+      {edus &&
+        edus.map((edu) => {
+          return <Edu key={edu.id} {...edu} />;
+        })}
     </div>
   );
 }
-function Edu({timeline,schoolName,degree,subject}){
-  return (<div className="experience">
-        <p className="timeLine">{timeline}</p>
-        <div className="experience-info">
-          <p className="bold">{schoolName}</p>
-          <p>Degree: {degree}</p>
-          <p>Subject : {subject}</p>
-        </div>
-      </div>)
+
+function Edu({ timeline, schoolName, degree, subject }) {
+  return (
+    <div className="experience">
+      <p className="timeLine">{timeline}</p>
+      <div className="experience-info">
+        <p className="bold">{schoolName}</p>
+        <p>Degree: {degree}</p>
+        <p>Subject: {subject}</p>
+      </div>
+    </div>
+  );
 }
 
 function Experiences({ exps }) {
@@ -74,6 +80,7 @@ function Experiences({ exps }) {
     </div>
   );
 }
+
 function Experience({ timeline, jobtitle, company }) {
   return (
     <div className="experience">
@@ -86,7 +93,6 @@ function Experience({ timeline, jobtitle, company }) {
   );
 }
 
-
 function PersonalDetails() {
   return (
     <div className="personalDetails">
@@ -97,7 +103,7 @@ function PersonalDetails() {
         <h3 className="heading">Personal Details</h3>
         <p className="bold">Address</p>
         <small>Example Street 10</small>
-        <p className="bold">Phone NUmber</p>
+        <p className="bold">Phone Number</p>
         <small>09345345738459</small>
         <p className="bold">Email</p>
         <small>asdf;h@gmial.com</small>
