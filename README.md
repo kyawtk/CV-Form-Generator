@@ -7,6 +7,8 @@ Rooms for improvement.
 Use Redux for better state management and avoid props drilling. 
 ---
 Better styling to accomodate new pages.
+---
+3.Demo : https://cv-onepage-generator.netlify.app/
 
 
 
