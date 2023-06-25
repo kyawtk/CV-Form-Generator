@@ -1,4 +1,4 @@
-import Preview from './components/Preview'
+import Preview from './Components/Preview'
 import './App.scss'
 import UserInput from './Components/UserInput'
 import { useState, useEffect } from 'react'
