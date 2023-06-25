@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../styles/UserInput.scss";
-
-const UserInput = ({ getExps, getEdus }) => {
+import PersonalDetail from "./PersonalDetail";
+const UserInput = ({ getExps, getEdus , handleChange }) => {
   const [experiences, setExperiences] = useState([]);
   const [educations, setEducations] = useState([]);
 
@@ -33,6 +33,7 @@ const UserInput = ({ getExps, getEdus }) => {
 
   return (
     <div className="userInput">
+      <PersonalDetail handleChange={handleChange}></PersonalDetail>
       <AddExperience handleExperiences={handleExperiences} />
       <div className="cards">
       {experiences.map((exp) => (
@@ -56,7 +57,7 @@ function Experience({ id, timeline, jobtitle, company, deleteExp }) {
       <p>Title: {jobtitle}</p>
       <p>Company: {company}</p>
       <p>ID: {id}</p>
-      <button onClick={() => deleteExp(id)}>Delete</button>
+      <button onClick={() => deleteExp(id)} className='btn delete'>Delete</button>
     </div>
   );
 }
@@ -69,7 +70,7 @@ function Education({ id, timeline, schoolName, degree, subject, deleteEdu }) {
       <p>Degree: {degree}</p>
       <p>Subject: {subject}</p>
       <p>ID: {id}</p>
-      <button onClick={() => deleteEdu(id)}>Delete</button>
+      <button onClick={() => deleteEdu(id)} className="btn delete">Delete</button>
     </div>
   );
 }

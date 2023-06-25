@@ -2,10 +2,22 @@
   font-family: "Roboto", sans-serif;
   margin: 0;
   padding: 0;
+
 }
 body {
+    background-color: #F9F9F9;
   min-height: 100vh;
 }
 #root{
     height: 100%;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }

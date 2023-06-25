@@ -1,13 +1,13 @@
 import React from "react";
 import "../styles/Preview.scss";
 
-const Preview = ({ edus, exps }) => {
+const Preview = ({ edus, exps , pinfo}) => {
   return (
     <div className="preview">
-      <Header />
+      <Header {...pinfo}/>
       <section>
-        <Main edus={edus} exps={exps} />
-        <PersonalDetails />
+        <Main edus={edus} exps={exps} pinfo={pinfo} />
+        <PersonalDetails {...pinfo}/>
       </section>
     </div>
   );
@@ -15,27 +15,22 @@ const Preview = ({ edus, exps }) => {
 
 export default Preview;
 
-function Header() {
+function Header({name, title}) {
   return (
     <header>
-      <h1>Jone Sky Hoverer</h1>
-      <h2>Sky Flyer Developer</h2>
+      <h1>{name}</h1>
+      <h2>{title}</h2>
     </header>
   );
 }
 
-function Main({ edus, exps }) {
+function Main({ edus, exps, pinfo }) {
   return (
     <div className="main">
       <div className="description">
         <h3 className="heading">Description</h3>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit ad
-          veniam earum quos aliquam consectetur repellendus, velit dicta optio
-          beatae illum maxime asperiores deserunt reiciendis eaque assumenda,
-          corrupti vero numquam molestias voluptatibus! Numquam dignissimos,
-          dicta repellat nobis eum quis earum saepe, minus ex quisquam, suscipit
-          illo officiis corporis nam dolor!
+         {pinfo.description}
         </p>
       </div>
       <Experiences exps={exps} />
@@ -93,20 +88,20 @@ function Experience({ timeline, jobtitle, company }) {
   );
 }
 
-function PersonalDetails() {
+function PersonalDetails({title,address,name,phNumber, email, file}) {
   return (
     <div className="personalDetails">
       <div className="imgContainer">
-        <img src="angle.jpg" alt="" />
+        <img src={file} alt="Picture" />
       </div>
       <div className="details">
         <h3 className="heading">Personal Details</h3>
         <p className="bold">Address</p>
-        <small>Example Street 10</small>
+        <small>{address}</small>
         <p className="bold">Phone Number</p>
-        <small>09345345738459</small>
+        <small> {phNumber}</small>
         <p className="bold">Email</p>
-        <small>asdf;h@gmial.com</small>
+        <small>{email}</small>
       </div>
     </div>
   );
